@@ -19,8 +19,8 @@ st.title("ASL Translator")
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Define paths to the model and label files
-model_path = os.path.join(BASE_DIR, 'models', 'asl_mediapipe_model.h5')
-labels_path = os.path.join(BASE_DIR, 'models', 'asl_class_indices_mediapipe.json')
+model_path = os.path.join(BASE_DIR, 'Models', 'asl_mediapipe_model.h5')
+labels_path = os.path.join(BASE_DIR, 'Models', 'asl_class_indices_mediapipe.json')
 
 # Check if model and label files exist
 if not os.path.exists(model_path):
