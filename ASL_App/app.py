@@ -12,8 +12,15 @@ st.set_page_config(page_title="ASL Translator", layout="wide")
 st.title("ASL Translator")
 
 # Paths to the model and label files
-model_path = "ASL_App/models/asl_mediapipe_model.h5"
-labels_path = "ASL_App/models/asl_class_indices_mediapipe.json"
+#model_path = "ASL_App/Models/asl_mediapipe_model.h5"
+#labels_path = "ASL_App/Models/asl_class_indices_mediapipe.json"
+
+# Define the base directory
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Define paths to the model and label files
+model_path = os.path.join(BASE_DIR, 'models', 'asl_mediapipe_model.h5')
+labels_path = os.path.join(BASE_DIR, 'models', 'asl_class_indices_mediapipe.json')
 
 # Check if model and label files exist
 if not os.path.exists(model_path):
