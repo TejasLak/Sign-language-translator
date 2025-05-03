@@ -11,12 +11,25 @@ from preprocessing import process_frame  # Ensure preprocessing.py is in the sam
 st.set_page_config(page_title="ASL Translator", layout="wide")
 st.title("ASL Translator")
 
+# Paths to the model and label files
+#model_path = "ASL_App/Models/asl_mediapipe_model.h5"
+#labels_path = "ASL_App/Models/asl_class_indices_mediapipe.json"
+
 # Define the base directory
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Define paths to the model and label files
 model_path = os.path.join(BASE_DIR, 'Models', 'asl_mediapipe_model.h5')
 labels_path = os.path.join(BASE_DIR, 'Models', 'asl_class_indices_mediapipe.json')
+
+# Check if model and label files exist
+if not os.path.exists(model_path):
+    st.error(f"Model file not found at {model_path}")
+    st.stop()
+
+if not os.path.exists(labels_path):
+    st.error(f"Label file not found at {labels_path}")
+    st.stop()
 
 # Load the trained model and label map
 @st.cache_resource
